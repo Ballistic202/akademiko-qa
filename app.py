@@ -15,7 +15,7 @@ openai_client = AzureOpenAI(
 
 search_client = SearchClient(
     endpoint=os.environ["SEARCH_ENDPOINT"],
-    index_name="akademiko-chunks",
+    index_name="akademiko-knowledge-source-index",
     credential=AzureKeyCredential(os.environ["SEARCH_KEY"])
 )
 
