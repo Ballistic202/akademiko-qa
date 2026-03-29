@@ -35,12 +35,12 @@ def ask():
         vector_queries=[VectorizedQuery(
             vector=embedding,
             k_nearest_neighbors=5,
-            fields="content_vector"
+            fields="snippet_vector"
         )],
-        select=["text_content", "lesson_title"],
+        select=["snippet", "blob_url"],
         top=3
     )
-    chunks = [r["text_content"] for r in results]
+    chunks = [r["snippet"] for r in results]
     context = "\n\n".join(chunks)
     response = openai_client.chat.completions.create(
         model="gpt-4o-mini",
